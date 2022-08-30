@@ -2,10 +2,13 @@
 
 public class Prisoner {
     //Fields
-    public String name;
-    public double height;
-    public int sentence;
-    public Cell cell;
+    private String name;
+    private double height;
+    private int sentence;
+    private Cell cell;
+    private static int prisonerCount = 0;
+    public int bookingNumber = prisonerCount;
+
 
 
     //Constructor
@@ -14,7 +17,7 @@ public class Prisoner {
         this.height = height;
         this.sentence = sentence;
         this.cell = cell;
-
+        prisonerCount++;
 
     }
 
@@ -25,22 +28,45 @@ public class Prisoner {
         System.out.println("I'll have my revenge.");
     }
     public void display(){
-        System.out.println("Name: " +name);
-        System.out.println("Height: " +height);
-        System.out.println("Sentence: " +sentence);
-        System.out.println("Cell name: " + cell.name);
-    }
-    public void openDoor() {
-        if (cell.doorIsOpen == true) {
-            System.out.println("Door is open");
-        }
-        else {
-            System.out.println("Door is closed");
-        }
+        System.out.println("Name: " + getName());
+        System.out.println("Height: " + getHeight() + "m");
+        System.out.println("Sentence: " + getSentence() + "yrs");
+        System.out.println("Cell name: " + cell.getName());
+
+        System.out.println("The prisoner count is " + getPrisonerCount());
+        System.out.println("The booking number is " + bookingNumber);
     }
 
 
 
-}
+    //Getters
+    public String getName () { return name; }
+    public double getHeight () { return height; }
+    public int getSentence () { return sentence; }
+    public Cell getCell () { return cell; }
+
+    public static int getPrisonerCount () { return prisonerCount; }
+
+    //Setters
+    public void setName (String name) { this.name = name; }
+    public void setHeight (double height) { this.height = height; }
+    public void setSentence (int sentence) { this.sentence = sentence; }
+    public void setCell (Cell cell) { this.cell = cell; }
+
+//    public void openDoor() {
+//        if (cell.doorIsOpen == true) {
+//            System.out.println("Door is open");
+//        }
+//        else {
+//            System.out.println("Door is closed");
+//        }
+
+
+
+    }
+
+
+
+
 
 
